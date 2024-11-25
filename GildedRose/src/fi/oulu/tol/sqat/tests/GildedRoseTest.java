@@ -29,4 +29,18 @@ public class GildedRoseTest {
 		//assert quality has decreased by one
 		assertEquals("Failed quality for Dexterity Vest", 19, quality);
 	}
+	
+	@Test
+	public void qualityNeverNegative() {
+		//create an inn, add an item, and simulate one day
+		GildedRose inn = new GildedRose();
+		inn.setItem(new Item("+5 Dexterity Vest", 10, 20));
+		inn.oneDay();
+		
+		//access a list of items, get the quality of the one set
+		List<Item> items = inn.getItems();
+		int quality = items.get(0).getQuality();
+		
+		
+	}
 }
